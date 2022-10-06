@@ -24,6 +24,7 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    private Difficulty difficulty;
 
     @Lob
     private Byte[] image;
