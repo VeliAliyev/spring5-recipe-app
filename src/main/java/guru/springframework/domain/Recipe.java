@@ -3,6 +3,7 @@ package guru.springframework.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -29,5 +30,8 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    Set<Ingredient> ingredients;
 
 }
