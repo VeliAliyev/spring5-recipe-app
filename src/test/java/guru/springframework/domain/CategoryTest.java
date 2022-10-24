@@ -1,9 +1,12 @@
 package guru.springframework.domain;
 
-import junit.framework.TestCase;
-import org.junit.Before;
 
-public class CategoryTest extends TestCase {
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class CategoryTest {
 
     Category category;
 
@@ -12,6 +15,7 @@ public class CategoryTest extends TestCase {
         category = new Category();
     }
 
+    @Test
     public void testGetId() {
         Long id = 5L;
 
