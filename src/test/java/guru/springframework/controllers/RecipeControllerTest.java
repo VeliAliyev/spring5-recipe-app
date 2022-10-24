@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import static org.junit.Assert.*;
 
 public class RecipeControllerTest {
 
@@ -41,7 +40,7 @@ public class RecipeControllerTest {
         when(recipeService.findById(any(Long.class))).thenReturn(recipe);
 
         //then
-        mockMvc.perform(get("/recipe/show/1"))
+        mockMvc.perform(get("/recipe/1/show"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"));
     }
