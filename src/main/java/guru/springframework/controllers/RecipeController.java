@@ -14,27 +14,27 @@ public class RecipeController {
 
     private final RecipeService recipeService;
 
-    @RequestMapping("recipe/{id}/show")
+    @GetMapping("recipe/{id}/show")
     public String getRecipeById(Model model, @PathVariable Long id){
         Recipe recipe = recipeService.findById(id);
         model.addAttribute("recipe", recipe);
         return "recipe/show";
     }
 
-    @RequestMapping("recipe/{id}/update")
+    @GetMapping("recipe/{id}/update")
     public String updateRecipeById(Model model, @PathVariable Long id){
         RecipeCommand recipeCommand = recipeService.findCommandById(id);
         model.addAttribute("recipe", recipeCommand);
         return "recipe/recipeForm";
     }
 
-    @RequestMapping("recipe/{id}/delete")
+    @GetMapping("recipe/{id}/delete")
     public String delete(Model model, @PathVariable Long id){
         recipeService.delete(id);
         return "redirect:/";
     }
 
-    @RequestMapping("recipe/new")
+    @GetMapping("recipe/new")
     public String newRecipe(Model model){
         model.addAttribute("recipe", new RecipeCommand());
         return "recipe/recipeForm";
