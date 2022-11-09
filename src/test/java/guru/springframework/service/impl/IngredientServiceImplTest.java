@@ -13,7 +13,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class IngredientServiceImplTest {
 
@@ -40,5 +40,6 @@ public class IngredientServiceImplTest {
 
         //then
         assertEquals((long) ingredientCommand.getId(), 1L);
+        verify(ingredientRepository, times(1)).findById(any(Long.class));
     }
 }
